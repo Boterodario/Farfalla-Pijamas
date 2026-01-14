@@ -412,19 +412,9 @@ export default function FarfallaStore() {
                         onClick={() => agregarAlCarrito(prod)}
                         className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-md hover:shadow-teal-400/50"
                       >
-                        🛒 CARRITO
+                        🛒 Agregar a Carrito
                       </button>
-                      <button
-                        onClick={() => {
-                          const cantidad = cantidades[prod.id] || 1;
-                          const total = prod.precio * cantidad;
-                          const msg = `¡Hola! Me interesa:\n\n*${prod.nombre}*\nCantidad: ${cantidad}\nTotal: $${total.toLocaleString()}`;
-                          contactarWhatsApp(msg);
-                        }}
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-md hover:shadow-emerald-400/50"
-                      >
-                        💬 CHAT
-                      </button>
+                
                     </div>
                   </div>
                 </div>
