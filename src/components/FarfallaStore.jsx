@@ -192,48 +192,49 @@ export default function FarfallaStore() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Fondo animado con gradientes y efectos visuales */}
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-lavender-50 text-gray-800 overflow-hidden">
+      {/* Fondo animado con colores suaves tipo farfalla */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-emerald-900 opacity-80"></div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-100/40 via-lavender-100/40 to-sky-100/40 opacity-80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-lavender-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
       </div>
 
       {/* Contenido principal */}
       <div className="relative z-10">
         {/* Header de la tienda */}
-        <header className="sticky top-0 z-50 bg-black/30 backdrop-blur-xl border-b border-emerald-500/30 shadow-2xl">
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-rose-200/50 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 sm:h-20">
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full opacity-50 blur-lg animate-pulse"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-rose-300 to-lavender-300 rounded-full opacity-60 blur-lg animate-pulse"></div>
                   <div className="w-12 h-12 sm:w-16 sm:h-16">
-                    <Sparkles className="w-full h-full text-emerald-400" />
+                    <Sparkles className="w-full h-full text-rose-500" />
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-rose-400 via-lavender-400 to-sky-400 bg-clip-text text-transparent animate-pulse">
                     FARFALLA
                   </h1>
-                  <p className="text-xs sm:text-sm text-emerald-400 font-bold tracking-widest">PREMIUM SLEEPWEAR</p>
+                  <p className="text-xs sm:text-sm text-rose-500 font-bold tracking-widest">PREMIUM SLEEPWEAR</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 sm:gap-4">
-                <div className="hidden sm:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 sm:px-4 py-2 rounded-full backdrop-blur">
-                  <Clock size={16} className="text-emerald-400" />
-                  <span className="text-xs font-bold text-emerald-300">Envío express</span>
+                <div className="hidden sm:flex items-center gap-2 bg-rose-100 border border-rose-200 px-3 sm:px-4 py-2 rounded-full">
+                  <Clock size={16} className="text-rose-500" />
+                  <span className="text-xs font-bold text-rose-600">Envío express</span>
                 </div>
 
                 <button
                   onClick={() => setCarritoAbierto(true)}
-                  className="relative group p-2 sm:p-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full hover:scale-110 transition-all shadow-2xl hover:shadow-emerald-500/50"
+                  className="relative group p-2 sm:p-3 bg-gradient-to-r from-rose-400 to-lavender-400 rounded-full hover:scale-110 transition-all shadow-lg hover:shadow-rose-300/50"
                 >
-                  <ShoppingCart size={20} className="sm:w-6 sm:h-6" />
+                  <ShoppingCart size={20} className="sm:w-6 sm:h-6 text-white" />
                   {cantidadTotal > 0 && (
-                    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white text-xs font-black rounded-full flex items-center justify-center animate-bounce shadow-lg">
+                    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-rose-500 text-white text-xs font-black rounded-full flex items-center justify-center animate-bounce shadow-lg">
                       {cantidadTotal}
                     </span>
                   )}
@@ -245,7 +246,7 @@ export default function FarfallaStore() {
 
         {/* Notificación flotante */}
         {notificacion && (
-          <div className="fixed top-20 sm:top-24 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black px-4 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl font-bold text-sm sm:text-lg animate-bounce max-w-[90%] sm:max-w-none text-center">
+          <div className="fixed top-20 sm:top-24 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-rose-400 to-lavender-400 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl font-bold text-sm sm:text-lg animate-bounce max-w-[90%] sm:max-w-none text-center">
             {notificacion}
           </div>
         )}
@@ -253,41 +254,41 @@ export default function FarfallaStore() {
         {/* Sección hero (principal) */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/20 via-transparent to-purple-500/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-rose-100/30 via-transparent to-lavender-100/30"></div>
           </div>
 
           <div className="relative max-w-5xl mx-auto px-4 text-center">
             <div className="mb-4 sm:mb-6 inline-block">
-              <span className="px-4 sm:px-6 py-2 sm:py-3 bg-emerald-500/20 border border-emerald-500/50 rounded-full text-xs sm:text-sm font-bold text-emerald-300 backdrop-blur flex items-center gap-2">
+              <span className="px-4 sm:px-6 py-2 sm:py-3 bg-rose-100 border border-rose-200 rounded-full text-xs sm:text-sm font-bold text-rose-600 flex items-center gap-2">
                 <Sparkles size={14} className="sm:w-4 sm:h-4" />
                 COLECCIÓN EXCLUSIVA 2025
               </span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
+              <span className="bg-gradient-to-r from-rose-400 via-lavender-400 to-sky-400 bg-clip-text text-transparent animate-pulse">
                 SUEÑOS
               </span>
               <br />
-              <span className="bg-gradient-to-r from-purple-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-lavender-400 via-rose-400 to-sky-400 bg-clip-text text-transparent">
                 DE COMODIDAD
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
               Pijamas 100% algodón franela con diseños que transformarán tus noches en una experiencia de lujo absoluto
             </p>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
               {[
-                { icon: '👑', texto: 'Premium Quality' },
-                { icon: '✨', texto: 'Diseños Únicos' },
-                { icon: '☁️', texto: 'Máx. Comodidad' },
-                { icon: '🚀', texto: 'Envío Rápido' }
+                { icon: '👑', texto: 'Premium Quality', color: 'from-rose-100 to-rose-50' },
+                { icon: '✨', texto: 'Diseños Únicos', color: 'from-lavender-100 to-lavender-50' },
+                { icon: '☁️', texto: 'Máx. Comodidad', color: 'from-sky-100 to-sky-50' },
+                { icon: '🚀', texto: 'Envío Rápido', color: 'from-violet-100 to-violet-50' }
               ].map((item, idx) => (
-                <div key={idx} className="group p-3 sm:p-4 bg-white/5 border border-emerald-500/30 rounded-2xl backdrop-blur hover:bg-emerald-500/10 hover:border-emerald-500/60 transition-all cursor-pointer">
+                <div key={idx} className={`group p-3 sm:p-4 bg-gradient-to-br ${item.color} border border-${item.color.split('-')[1]}-200 rounded-2xl hover:shadow-lg transition-all cursor-pointer`}>
                   <div className="text-2xl sm:text-3xl md:text-4xl mb-2 group-hover:scale-110 transition-transform">{item.icon}</div>
-                  <p className="text-xs font-bold text-emerald-300">{item.texto}</p>
+                  <p className="text-xs font-bold text-gray-700">{item.texto}</p>
                 </div>
               ))}
             </div>
@@ -296,7 +297,7 @@ export default function FarfallaStore() {
               onClick={() => {
                 document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-black text-base sm:text-lg rounded-full hover:scale-110 transition-all shadow-2xl hover:shadow-emerald-500/50 animate-bounce"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-rose-400 to-lavender-400 text-white font-black text-base sm:text-lg rounded-full hover:scale-110 transition-all shadow-lg hover:shadow-rose-300/50 animate-bounce"
             >
               EXPLORAR COLECCIÓN ↓
             </button>
@@ -306,23 +307,23 @@ export default function FarfallaStore() {
         {/* Sección de búsqueda */}
         <section className="max-w-6xl mx-auto px-4 py-6 sm:py-8 relative z-20">
           <div className="relative">
-            <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-emerald-400" size={20} />
+            <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-rose-400" size={20} />
             <input
               type="text"
               placeholder="Busca tu pijama ideal..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full pl-11 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white/5 border border-emerald-500/30 rounded-xl focus:outline-none focus:border-emerald-500/80 focus:bg-white/10 transition-all text-white placeholder-gray-500 backdrop-blur text-base sm:text-lg"
+              className="w-full pl-11 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white/70 border border-rose-200 rounded-xl focus:outline-none focus:border-rose-300 focus:bg-white transition-all text-gray-800 placeholder-rose-300 shadow-sm"
             />
           </div>
         </section>
 
         {/* Sección de productos */}
         <section id="productos" className="max-w-7xl mx-auto px-4 py-12 sm:py-16 relative z-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-3 sm:mb-4 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-3 sm:mb-4 bg-gradient-to-r from-rose-400 to-lavender-400 bg-clip-text text-transparent">
             NUESTRAS JOYAS
           </h2>
-          <p className="text-center text-gray-400 mb-8 sm:mb-12 text-base sm:text-lg px-4">Cada pijama es una obra de arte diseñada para tu confort</p>
+          <p className="text-center text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg px-4">Cada pijama es una obra de arte diseñada para tu confort</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filtrados.map((prod, idx) => (
@@ -333,44 +334,44 @@ export default function FarfallaStore() {
                 onMouseLeave={() => setProductoEnfoque(null)}
               >
                 {/* Efecto de fondo para la tarjeta */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-100/50 to-lavender-100/50 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
 
-                <div className="relative bg-white/5 border border-emerald-500/30 rounded-2xl overflow-hidden backdrop-blur hover:border-emerald-500/80 transition-all duration-300 h-full flex flex-col shadow-2xl">
+                <div className="relative bg-white border border-rose-100 rounded-2xl overflow-hidden hover:border-rose-200 transition-all duration-300 h-full flex flex-col shadow-lg hover:shadow-xl">
                   {/* Badges de trending y nuevo */}
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 flex gap-2">
                     {prod.trending && (
-                      <div className="px-2 sm:px-3 py-1 bg-red-500/80 rounded-full text-white text-xs font-black flex items-center gap-1">
+                      <div className="px-2 sm:px-3 py-1 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full text-white text-xs font-black flex items-center gap-1">
                         <TrendingUp size={12} /> TRENDING
                       </div>
                     )}
                     {prod.nueva && (
-                      <div className="px-2 sm:px-3 py-1 bg-emerald-500/80 rounded-full text-white text-xs font-black">
+                      <div className="px-2 sm:px-3 py-1 bg-gradient-to-r from-sky-500 to-cyan-400 rounded-full text-white text-xs font-black">
                         🆕 NUEVO
                       </div>
                     )}
                   </div>
 
                   {/* Imagen del producto */}
-                  <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-emerald-900/50 to-purple-900/50 flex items-center justify-center p-4 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-rose-50/50 to-lavender-50/50 flex items-center justify-center p-4 overflow-hidden">
                     <img
                       src={prod.imagenes[0]}
                       alt={prod.nombre}
                       className="h-full w-auto object-contain group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
 
                   {/* Información del producto */}
                   <div className="p-4 sm:p-6 flex flex-col flex-grow">
                     <div className="flex justify-between items-start mb-2 sm:mb-3">
-                      <h3 className="text-lg sm:text-xl font-black text-emerald-300 flex-1">
+                      <h3 className="text-lg sm:text-xl font-black text-gray-800 flex-1">
                         {prod.nombre}
                       </h3>
                       <button
                         onClick={() => toggleFavorito(prod.id)}
-                        className="p-2 bg-white/10 rounded-full hover:bg-emerald-500/30 transition-all flex-shrink-0"
+                        className="p-2 bg-rose-50 rounded-full hover:bg-rose-100 transition-all flex-shrink-0"
                       >
-                        <Heart size={18} className="sm:w-5 sm:h-5 text-red-500 fill-red-500" />
+                        <Heart size={18} className="sm:w-5 sm:h-5 text-rose-400 hover:fill-rose-400" />
                       </button>
                     </div>
 
@@ -379,29 +380,29 @@ export default function FarfallaStore() {
                       <div className="flex gap-0.5 text-sm">
                         {renderStars(prod.calificacion)}
                       </div>
-                      <span className="text-xs text-gray-400">({prod.resenas})</span>
+                      <span className="text-xs text-gray-500">({prod.resenas})</span>
                     </div>
 
-                    <p className="text-sm text-gray-400 mb-3 sm:mb-4">{prod.desc}</p>
+                    <p className="text-sm text-gray-600 mb-3 sm:mb-4">{prod.desc}</p>
 
                     {/* Material y talla */}
-                    <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg">
-                      <p className="text-xs text-emerald-300 font-bold">
+                    <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-rose-50/50 border border-rose-100 rounded-lg">
+                      <p className="text-xs text-rose-600 font-bold">
                         🧵 {prod.material} | 📏 {prod.talla.toUpperCase()}
                       </p>
                     </div>
 
                     {/* Precio */}
-                    <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-3 sm:mb-4">
+                    <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-rose-500 to-lavender-500 bg-clip-text text-transparent mb-3 sm:mb-4">
                       ${prod.precio.toLocaleString()}
                     </p>
 
                     {/* Stock disponible */}
                     <div className="mb-3 sm:mb-4 text-xs font-bold">
                       {prod.stock > 5 ? (
-                        <span className="text-emerald-300">✅ En stock ({prod.stock})</span>
+                        <span className="text-emerald-600">✅ En stock ({prod.stock})</span>
                       ) : (
-                        <span className="text-red-400">⚠️ Solo {prod.stock} disponibles</span>
+                        <span className="text-rose-500">⚠️ Solo {prod.stock} disponibles</span>
                       )}
                     </div>
 
@@ -409,7 +410,7 @@ export default function FarfallaStore() {
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mt-auto">
                       <button
                         onClick={() => agregarAlCarrito(prod)}
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-lg hover:shadow-emerald-500/50"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-rose-400 to-lavender-400 text-white font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-md hover:shadow-rose-300/50"
                       >
                         🛒 CARRITO
                       </button>
@@ -420,7 +421,7 @@ export default function FarfallaStore() {
                           const msg = `¡Hola! Me interesa:\n\n*${prod.nombre}*\nCantidad: ${cantidad}\nTotal: $${total.toLocaleString()}`;
                           contactarWhatsApp(msg);
                         }}
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-black font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-lg hover:shadow-green-500/50"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-400 to-teal-400 text-white font-black text-sm sm:text-base rounded-lg hover:scale-105 transition-all shadow-md hover:shadow-emerald-300/50"
                       >
                         💬 CHAT
                       </button>
@@ -434,7 +435,7 @@ export default function FarfallaStore() {
           {/* Mensaje cuando no hay resultados de búsqueda */}
           {filtrados.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-xl sm:text-2xl text-gray-400 font-bold">
+              <p className="text-xl sm:text-2xl text-gray-500 font-bold">
                 No encontramos pijamas con esa búsqueda
               </p>
             </div>
@@ -445,19 +446,19 @@ export default function FarfallaStore() {
         {carritoAbierto && (
           <div className="fixed inset-0 z-50">
             <div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-white/80 backdrop-blur-sm"
               onClick={() => setCarritoAbierto(false)}
             ></div>
 
-            <div className="absolute right-0 top-0 h-screen w-full sm:w-[400px] md:w-[450px] bg-black border-l border-emerald-500/50 shadow-2xl flex flex-col">
-              <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-black p-4 sm:p-6 flex justify-between items-center font-black">
+            <div className="absolute right-0 top-0 h-screen w-full sm:w-[400px] md:w-[450px] bg-white border-l border-rose-200 shadow-2xl flex flex-col">
+              <div className="bg-gradient-to-r from-rose-400 to-lavender-400 text-white p-4 sm:p-6 flex justify-between items-center font-black">
                 <h2 className="text-xl sm:text-2xl flex items-center gap-2">
                   <ShoppingCart size={24} className="sm:w-7 sm:h-7" />
                   MI CARRITO
                 </h2>
                 <button
                   onClick={() => setCarritoAbierto(false)}
-                  className="p-1 hover:bg-black/30 rounded-lg transition-colors"
+                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
                 >
                   <X size={24} className="sm:w-7 sm:h-7" />
                 </button>
@@ -466,24 +467,24 @@ export default function FarfallaStore() {
               <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                 {carrito.length === 0 ? (
                   <div className="text-center py-12">
-                    <p className="text-gray-400 font-bold text-lg">Tu carrito está vacío</p>
+                    <p className="text-gray-600 font-bold text-lg">Tu carrito está vacío</p>
                     <p className="text-gray-500 text-sm mt-2">¡Agrega pijamas para comenzar!</p>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {carrito.map((item, idx) => (
-                      <div key={idx} className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4">
+                      <div key={idx} className="bg-rose-50 border border-rose-100 rounded-lg p-4">
                         <div className="flex justify-between items-start mb-2">
-                          <h4 className="font-bold text-emerald-300">{item.nombre}</h4>
+                          <h4 className="font-bold text-gray-800">{item.nombre}</h4>
                           <button
                             onClick={() => setCarrito(carrito.filter((_, i) => i !== idx))}
-                            className="text-red-500 hover:text-red-400 font-bold"
+                            className="text-rose-500 hover:text-rose-600 font-bold"
                           >
                             ✕
                           </button>
                         </div>
-                        <p className="text-sm text-gray-400 mb-2">Cantidad: {item.cantidad}</p>
-                        <p className="font-bold text-emerald-400 text-lg">
+                        <p className="text-sm text-gray-600 mb-2">Cantidad: {item.cantidad}</p>
+                        <p className="font-bold text-rose-500 text-lg">
                           ${(item.precio * item.cantidad).toLocaleString()}
                         </p>
                       </div>
@@ -493,17 +494,17 @@ export default function FarfallaStore() {
               </div>
 
               {carrito.length > 0 && (
-                <div className="border-t border-emerald-500/30 p-4 sm:p-6 bg-black">
-                  <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-lg">
-                    <p className="text-xs sm:text-sm text-gray-400 mb-2">TOTAL A PAGAR</p>
-                    <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                <div className="border-t border-rose-200 p-4 sm:p-6 bg-white">
+                  <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-rose-50 border border-rose-100 rounded-lg">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">TOTAL A PAGAR</p>
+                    <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-rose-500 to-lavender-500 bg-clip-text text-transparent">
                       ${totalCarrito.toLocaleString()}
                     </p>
                   </div>
 
                   <button
                     onClick={handleCheckout}
-                    className="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-black py-3 sm:py-4 rounded-lg hover:scale-105 transition-all shadow-2xl hover:shadow-emerald-500/50 text-base sm:text-lg"
+                    className="w-full bg-gradient-to-r from-rose-400 to-lavender-400 text-white font-black py-3 sm:py-4 rounded-lg hover:scale-105 transition-all shadow-lg hover:shadow-rose-300/50 text-base sm:text-lg"
                   >
                     💬 COMPRAR AHORA
                   </button>
@@ -514,41 +515,41 @@ export default function FarfallaStore() {
         )}
 
         {/* Footer de la página */}
-        <footer className="border-t border-emerald-500/30 mt-12 sm:mt-20 py-8 sm:py-12 relative z-20">
+        <footer className="border-t border-rose-200 mt-12 sm:mt-20 py-8 sm:py-12 relative z-20 bg-white/50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
               <div>
-                <h3 className="text-base sm:text-lg font-black text-emerald-400 mb-3 sm:mb-4">FARFALLA</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-base sm:text-lg font-black text-rose-500 mb-3 sm:mb-4">FARFALLA</h3>
+                <p className="text-gray-600 text-sm">
                   Pijamas de lujo para tus noches más cómodas. Hecho en Colombia con amor.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-base sm:text-lg font-black text-emerald-400 mb-3 sm:mb-4">CONTACTO</h3>
-                <p className="text-gray-400 text-sm flex items-center gap-2 mb-2">
-                  <span>📱</span> +57 317 285 0958
+                <h3 className="text-base sm:text-lg font-black text-rose-500 mb-3 sm:mb-4">CONTACTO</h3>
+                <p className="text-gray-600 text-sm flex items-center gap-2 mb-2">
+                  <span className="text-rose-400">📱</span> +57 317 285 0958
                 </p>
-                <p className="text-gray-400 text-sm flex items-center gap-2">
-                  <span>📍</span> Colombia
+                <p className="text-gray-600 text-sm flex items-center gap-2">
+                  <span className="text-rose-400">📍</span> Colombia
                 </p>
               </div>
 
               <div>
-                <h3 className="text-base sm:text-lg font-black text-emerald-400 mb-3 sm:mb-4">SÍGUENOS</h3>
+                <h3 className="text-base sm:text-lg font-black text-rose-500 mb-3 sm:mb-4">SÍGUENOS</h3>
                 <div className="flex gap-4">
-                  <a href="https://instagram.com/farfallapijamas" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg text-lg sm:text-xl">
+                  <a href="https://instagram.com/farfallapijamas" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-rose-400 to-lavender-400 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg text-white text-lg sm:text-xl">
                     📷
                   </a>
-                  <a href="https://wa.me/573172850958" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg text-lg sm:text-xl">
+                  <a href="https://wa.me/573172850958" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg text-white text-lg sm:text-xl">
                     💬
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-emerald-500/30 pt-6 sm:pt-8 text-center text-gray-500 text-xs sm:text-sm">
-              <p>© 2025 Farfalla Pijamas. Todos los derechos reservados. 💚</p>
+            <div className="border-t border-rose-200 pt-6 sm:pt-8 text-center text-gray-500 text-xs sm:text-sm">
+              <p>© 2025 Farfalla Pijamas. Todos los derechos reservados. <span className="text-rose-400">💚</span></p>
             </div>
           </div>
         </footer>
@@ -557,7 +558,7 @@ export default function FarfallaStore() {
         {adminAbierto && (
           <div className="fixed inset-0 z-50">
             <div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-white/80 backdrop-blur-sm"
               onClick={() => {
                 setAdminAbierto(false);
                 setAdminAutenticado(false);
@@ -565,8 +566,8 @@ export default function FarfallaStore() {
               }}
             ></div>
 
-            <div className="absolute left-0 top-0 h-screen w-full sm:w-[400px] md:w-[450px] bg-black border-r border-orange-500/50 shadow-2xl flex flex-col overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-orange-500 text-black p-4 sm:p-6 flex justify-between items-center font-black">
+            <div className="absolute left-0 top-0 h-screen w-full sm:w-[400px] md:w-[450px] bg-white border-r border-orange-300 shadow-2xl flex flex-col overflow-hidden">
+              <div className="bg-gradient-to-r from-orange-400 to-amber-400 text-white p-4 sm:p-6 flex justify-between items-center font-black">
                 <h2 className="text-xl sm:text-2xl">⚙️ PANEL ADMIN</h2>
                 <button
                   onClick={() => {
@@ -574,7 +575,7 @@ export default function FarfallaStore() {
                     setAdminAutenticado(false);
                     setPasswordInput('');
                   }}
-                  className="p-1 hover:bg-black/30 rounded-lg transition-colors"
+                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
                 >
                   <X size={24} className="sm:w-7 sm:h-7" />
                 </button>
@@ -583,19 +584,19 @@ export default function FarfallaStore() {
               <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                 {!adminAutenticado ? (
                   <div className="space-y-4">
-                    <p className="text-gray-400 font-bold text-base sm:text-lg">Ingresa la contraseña:</p>
+                    <p className="text-gray-600 font-bold text-base sm:text-lg">Ingresa la contraseña:</p>
                     <input
                       type="password"
                       value={passwordInput}
                       onChange={(e) => setPasswordInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && verificarPassword()}
                       placeholder="Contraseña"
-                      className="w-full px-4 py-3 bg-white/5 border border-orange-500/30 rounded-lg focus:outline-none focus:border-orange-500/80 text-white"
+                      className="w-full px-4 py-3 bg-gray-50 border border-orange-200 rounded-lg focus:outline-none focus:border-orange-400 text-gray-800"
                       autoFocus
                     />
                     <button
                       onClick={verificarPassword}
-                      className="w-full bg-gradient-to-r from-orange-600 to-orange-500 text-black font-black py-3 rounded-lg hover:scale-105 transition-all shadow-lg"
+                      className="w-full bg-gradient-to-r from-orange-400 to-amber-400 text-white font-black py-3 rounded-lg hover:scale-105 transition-all shadow-lg"
                     >
                       ENTRAR
                     </button>
@@ -603,47 +604,47 @@ export default function FarfallaStore() {
                 ) : (
                   <div className="space-y-6">
                     {/* Sección para editar productos existentes */}
-                    <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
-                      <h3 className="font-black text-orange-400 mb-4 text-base sm:text-lg">📝 EDITAR PRODUCTOS</h3>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                      <h3 className="font-black text-orange-500 mb-4 text-base sm:text-lg">📝 EDITAR PRODUCTOS</h3>
                       {productos.map(prod => (
-                        <div key={prod.id} className="bg-black/50 p-3 sm:p-4 rounded-lg mb-4 border border-orange-500/20">
+                        <div key={prod.id} className="bg-white p-3 sm:p-4 rounded-lg mb-4 border border-orange-200 shadow-sm">
                           <input
                             type="text"
                             value={prod.nombre}
                             onChange={(e) => actualizarProducto(prod.id, 'nombre', e.target.value)}
-                            className="w-full px-3 py-2 border border-orange-500/30 rounded mb-2 font-bold text-white bg-white/5 text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-orange-200 rounded mb-2 font-bold text-gray-800 bg-gray-50 text-sm sm:text-base"
                           />
                           <input
                             type="number"
                             value={prod.precio}
                             onChange={(e) => actualizarProducto(prod.id, 'precio', parseInt(e.target.value))}
-                            className="w-full px-3 py-2 border border-orange-500/30 rounded mb-2 text-white bg-white/5 text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-orange-200 rounded mb-2 text-gray-800 bg-gray-50 text-sm sm:text-base"
                             placeholder="Precio"
                           />
                           <input
                             type="text"
                             value={prod.color}
                             onChange={(e) => actualizarProducto(prod.id, 'color', e.target.value)}
-                            className="w-full px-3 py-2 border border-orange-500/30 rounded mb-2 text-white bg-white/5 text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-orange-200 rounded mb-2 text-gray-800 bg-gray-50 text-sm sm:text-base"
                             placeholder="Color"
                           />
                           <input
                             type="number"
                             value={prod.stock}
                             onChange={(e) => actualizarProducto(prod.id, 'stock', parseInt(e.target.value))}
-                            className="w-full px-3 py-2 border border-orange-500/30 rounded mb-2 text-white bg-white/5 text-sm sm:text-base"
+                            className="w-full px-3 py-2 border border-orange-200 rounded mb-2 text-gray-800 bg-gray-50 text-sm sm:text-base"
                             placeholder="Stock"
                           />
                           {prod.imagenes[0] && (
                             <img
                               src={prod.imagenes[0]}
                               alt="Preview"
-                              className="w-full h-16 sm:h-20 object-cover rounded border border-orange-500/30 mb-2"
+                              className="w-full h-16 sm:h-20 object-cover rounded border border-orange-200 mb-2"
                             />
                           )}
                           <button
                             onClick={() => eliminarProducto(prod.id)}
-                            className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded transition-all text-sm sm:text-base"
+                            className="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold py-2 rounded transition-all text-sm sm:text-base"
                           >
                             🗑️ ELIMINAR
                           </button>
@@ -652,84 +653,84 @@ export default function FarfallaStore() {
                     </div>
 
                     {/* Sección para agregar nuevos productos */}
-                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-                      <h3 className="font-black text-blue-400 mb-4 text-base sm:text-lg">➕ AGREGAR PRODUCTO</h3>
+                    <div className="bg-sky-50 border border-sky-200 rounded-lg p-4">
+                      <h3 className="font-black text-sky-500 mb-4 text-base sm:text-lg">➕ AGREGAR PRODUCTO</h3>
                       <div className="space-y-3">
                         <input
                           type="text"
                           value={formNombre}
                           onChange={(e) => setFormNombre(e.target.value)}
                           placeholder="Nombre"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="number"
                           value={formPrecio}
                           onChange={(e) => setFormPrecio(e.target.value)}
                           placeholder="Precio"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="text"
                           value={formDesc}
                           onChange={(e) => setFormDesc(e.target.value)}
                           placeholder="Descripción"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="text"
                           value={formColor}
                           onChange={(e) => setFormColor(e.target.value)}
                           placeholder="Color"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="text"
                           value={formTalla}
                           onChange={(e) => setFormTalla(e.target.value)}
                           placeholder="Talla"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="text"
                           value={formMaterial}
                           onChange={(e) => setFormMaterial(e.target.value)}
                           placeholder="Material"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="text"
                           value={formCuidado}
                           onChange={(e) => setFormCuidado(e.target.value)}
                           placeholder="Cuidados"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <input
                           type="number"
                           value={formStock}
                           onChange={(e) => setFormStock(e.target.value)}
                           placeholder="Stock"
-                          className="w-full px-3 py-2 border border-blue-500/30 rounded text-white bg-white/5 text-sm sm:text-base"
+                          className="w-full px-3 py-2 border border-sky-200 rounded text-gray-800 bg-white text-sm sm:text-base"
                         />
                         <div>
-                          <label className="block text-xs sm:text-sm font-bold text-blue-400 mb-2">📸 Imagen</label>
+                          <label className="block text-xs sm:text-sm font-bold text-sky-500 mb-2">📸 Imagen</label>
                           <input
                             type="file"
                             accept="image/*"
                             onChange={handleImageUpload}
-                            className="w-full px-3 py-2 border-2 border-dashed border-blue-500/30 rounded cursor-pointer text-white text-sm"
+                            className="w-full px-3 py-2 border-2 border-dashed border-sky-300 rounded cursor-pointer text-gray-800 bg-white text-sm"
                           />
                           {formPreview && (
                             <img
                               src={formPreview}
                               alt="Preview"
-                              className="w-full h-16 sm:h-20 object-cover rounded border border-blue-500/30 mt-2"
+                              className="w-full h-16 sm:h-20 object-cover rounded border border-sky-300 mt-2"
                             />
                           )}
                         </div>
                         <button
                           onClick={handleAgregarProducto}
-                          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded transition-all text-sm sm:text-base"
+                          className="w-full bg-gradient-to-r from-sky-500 to-cyan-400 hover:from-sky-600 hover:to-cyan-500 text-white font-bold py-3 rounded transition-all text-sm sm:text-base"
                         >
                           ✅ AGREGAR PRODUCTO
                         </button>
