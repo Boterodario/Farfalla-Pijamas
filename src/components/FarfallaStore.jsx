@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ShoppingCart, X, Search, Heart, Sparkles, TrendingUp, Gift, Clock } from 'lucide-react';
 
+
 export default function FarfallaStore() {
   // Estado para almacenar la lista de productos
   const [productos, setProductos] = useState([
@@ -23,6 +24,17 @@ export default function FarfallaStore() {
   const [timerFlash, setTimerFlash] = useState(null);
   // Estado para saber qué producto tiene el mouse encima
   const [productoEnfoque, setProductoEnfoque] = useState(null);
+  // Estado para el índice actual del carrusel
+  const [indiceCarrusel, setIndiceCarrusel] = useState(0);
+  
+  // Imágenes para el carrusel
+  const imagenesCarrusel = [
+    "/public/imagen1.webp",
+"public/imagen2.webp",
+"public/imagen3.webp",
+"public/imagen4.webp",
+
+  ];
   // Estado para controlar si el panel de admin está abierto
   const [adminAbierto, setAdminAbierto] = useState(false);
   // Estado para la contraseña ingresada en el admin
@@ -55,6 +67,16 @@ export default function FarfallaStore() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  
+  // Efecto para el carrusel automático
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setIndiceCarrusel((prev) => (prev + 1) % imagenesCarrusel.length);
+    }, 5000); // Cambia cada 3 segundos
+    
+    return () => clearInterval(intervalo);
+  }, [imagenesCarrusel.length]);
 
   // Función para verificar la contraseña del admin
   const verificarPassword = () => {
@@ -251,12 +273,144 @@ export default function FarfallaStore() {
           </div>
         )}
 
+
+{/* Carrusel de imágenes */}
+<section className="relative w-full mt-16 sm:mt-20">
+  {/* Contenedor con gradiente de fondo */}
+  <div 
+    className="relative w-full h-56 sm:h-72 md:h-96 lg:h-[520px] overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900"
+    style={{ perspective: '1000px' }}
+  >
+    
+    {imagenesCarrusel.map((img, idx) => {
+      // Calcular la posición relativa de cada imagen
+      let position = idx - indiceCarrusel;
+      if (position < -1) position = position + imagenesCarrusel.length;
+      if (position > 1) position = position - imagenesCarrusel.length;
+      
+      // Determinar estilos basados en la posición
+      const getTransform = () => {
+        if (position === 0) {
+          return 'translateX(0%) rotateY(0deg) scale(1)';
+        } else if (position === 1) {
+          return 'translateX(80%) rotateY(-65deg) scale(0.8)';
+        } else if (position === -1) {
+          return 'translateX(-80%) rotateY(65deg) scale(0.8)';
+        } else {
+          return 'translateX(200%) rotateY(-90deg) scale(0.6)';
+        }
+      };
+
+      const getOpacity = () => {
+        if (position === 0) return 1;
+        if (Math.abs(position) === 1) return 0.6;
+        return 0;
+      };
+
+      const getZIndex = () => {
+        if (position === 0) return 30;
+        if (Math.abs(position) === 1) return 20;
+        return 10;
+      };
+
+      return (
+        <div
+          key={idx}
+          className="absolute inset-0 transition-all duration-700 ease-in-out"
+          style={{
+            transform: getTransform(),
+            opacity: getOpacity(),
+            zIndex: getZIndex(),
+            transformStyle: 'preserve-3d',
+          }}
+        >
+          {/* Fondo con imagen difuminada + overlay de color */}
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Imagen de fondo muy difuminada y expandida */}
+            <div 
+              className="absolute inset-0 w-full h-full bg-cover bg-center blur-3xl"
+              style={{ 
+                backgroundImage: `url(${img})`,
+                transform: 'scale(1.5)',
+                filter: 'blur(60px) brightness(0.7)',
+              }}
+            />
+            
+            {/* Overlay de color suave para unificar */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-pink-900/30 to-blue-900/40" />
+            
+            {/* Degradado adicional para suavizar los bordes */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/30" />
+          </div>
+          
+          {/* Imagen principal */}
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <img
+              src={img}
+              alt={`Pijama ${idx + 1}`}
+              className="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300 shadow-2xl relative z-10 drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      );
+    })}
+
+    {/* Botones de navegación */}
+    <button
+      onClick={() => setIndiceCarrusel((prev) => 
+        prev === 0 ? imagenesCarrusel.length - 1 : prev - 1
+      )}
+      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
+                 text-gray-800 rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300
+                 hover:scale-110 z-40"
+      aria-label="Imagen anterior"
+    >
+      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    
+    <button
+      onClick={() => setIndiceCarrusel((prev) => 
+        prev === imagenesCarrusel.length - 1 ? 0 : prev + 1
+      )}
+      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
+                 text-gray-800 rounded-full p-2 sm:p-3 shadow-lg transition-all duration-300
+                 hover:scale-110 z-40"
+      aria-label="Imagen siguiente"
+    >
+      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    
+    {/* Indicadores de posición */}
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+      {imagenesCarrusel.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => setIndiceCarrusel(idx)}
+          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            idx === indiceCarrusel 
+              ? "bg-white w-8" 
+              : "bg-white/50 hover:bg-white/75"
+          }`}
+          aria-label={`Ir a imagen ${idx + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+      
+
         {/* Sección hero (principal) */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-b from-teal-100/30 via-transparent to-cyan-100/30"></div>
           </div>
 
+      
           <div className="relative max-w-5xl mx-auto px-4 text-center">
             <div className="mb-4 sm:mb-6 inline-block">
               <span className="px-4 sm:px-6 py-2 sm:py-3 bg-teal-100 border border-teal-200 rounded-full text-xs sm:text-sm font-bold text-teal-700 flex items-center gap-2">
