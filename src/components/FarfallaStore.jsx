@@ -28,13 +28,12 @@ export default function FarfallaStore() {
   const [indiceCarrusel, setIndiceCarrusel] = useState(0);
   
   // Imágenes para el carrusel
-  const imagenesCarrusel = [
-    "/public/imagen1.webp",
-"public/imagen2.webp",
-"public/imagen3.webp",
-"public/imagen4.webp",
-
-  ];
+const imagenesCarrusel = [
+  "/imagen1.webp",
+  "/imagen2.webp",
+  "/imagen3.webp",
+  "/imagen4.webp",
+];
   // Estado para controlar si el panel de admin está abierto
   const [adminAbierto, setAdminAbierto] = useState(false);
   // Estado para la contraseña ingresada en el admin
