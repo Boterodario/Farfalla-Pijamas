@@ -967,6 +967,7 @@ export default function FarfallaStore() {
                                 "color",
                                 e.target.value
                               )
+                              
                             }
                             className="w-full px-3 py-2 border border-amber-200 rounded mb-2 text-slate-800 bg-slate-50 text-sm sm:text-base"
                             placeholder="Color"
